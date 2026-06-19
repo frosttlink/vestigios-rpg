@@ -1,6 +1,4 @@
-"use client";
-
-import { BookOpen, Globe, Menu, Puzzle, Search } from "lucide-react";
+import { BookOpen, Eye, Globe, Menu, Puzzle } from "lucide-react";
 import Link from "next/link";
 
 interface HeaderProps {
@@ -15,7 +13,7 @@ export function Header({ variant = "compact" }: HeaderProps) {
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 text-white">
               <div className="w-12 h-12 rounded-lg border border-zinc-700 bg-black/40 backdrop-blur flex items-center justify-center">
-                <Search size={20} />
+                <Eye size={20} />
               </div>
 
               <div>
@@ -61,7 +59,7 @@ export function Header({ variant = "compact" }: HeaderProps) {
           </div>
         </nav>
       </header>
-    );
+    )
   }
 
   return (
@@ -70,7 +68,7 @@ export function Header({ variant = "compact" }: HeaderProps) {
         <div className="flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-lg border border-zinc-800 bg-zinc-950 flex items-center justify-center">
-              <Search size={18} className="text-zinc-200" />
+              <Eye size={18} className="text-zinc-200" />
             </div>
 
             <div>
@@ -118,5 +116,5 @@ export function Header({ variant = "compact" }: HeaderProps) {
         </div>
       </nav>
     </header>
-  );
+  )
 }

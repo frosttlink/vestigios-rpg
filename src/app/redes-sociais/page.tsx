@@ -1,4 +1,4 @@
-import { Globe, HeartHandshake } from "lucide-react";
+import { AdIcon, Globe, HeartHandshake, X, MessageCircle, Play, Camera } from "lucide-react";
 import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
@@ -7,11 +7,27 @@ import { SectionCard } from "@/components/section-card";
 const SOCIAL_LINKS = [
   {
     name: "X (Twitter)",
-    href: "https://x.com/vestigiosrpg",
+    href: "https://x.com/VestigiosRPGsys",
+    icon: X,
+    lore: "Transmissões fragmentadas do Sistema. Mensagens curtas, sinais codificados e atualizações instáveis do universo Vestígios.",
   },
   {
     name: "Instagram",
-    href: "https://instagram.com/vestigiosrpg",
+    href: "https://www.instagram.com/vestigios_rpg",
+    icon: Camera,
+    lore: "Registros visuais do mundo em colapso. Evidências e artefatos dos vestígios encontrados.",
+  },
+  {
+    name: "Youtube",
+    href: "https://youtube.com/@vestigiosrpg?si=vKU60KQeEAcFXxen",
+    icon: Play,
+    lore: "Arquivos audiovisuais classificados. Relatos, campanhas e transmissões do que não deveria ser visto.",
+  },
+  {
+    name: "Whatsapp",
+    href: "https://www.whatsapp.com/channel/0029Vb7I6VrBA1eysc9UnT1q",
+    icon: MessageCircle,
+    lore: "Canal direto de comunicação. Alertas do Sistema e sinais em tempo real.",
   },
 ];
 
@@ -30,7 +46,7 @@ export default function RedesSociais() {
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-black font-mono tracking-[0.05em] text-zinc-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            <h1 className="text-5xl md:text-6xl font-black font-mono tracking-wider text-zinc-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
               [REDES SOCIAIS]
             </h1>
 
@@ -57,7 +73,10 @@ export default function RedesSociais() {
           </div>
 
           <div className="space-y-5">
-            {SOCIAL_LINKS.map((social) => (
+            {SOCIAL_LINKS.map((social) => {
+            const Icon = social.icon;
+
+            return (
               <a
                 key={social.name}
                 href={social.href}
@@ -68,7 +87,7 @@ export default function RedesSociais() {
                 <SectionCard hover glow className="p-6 md:p-8 cursor-pointer">
                   <div className="flex items-center gap-5">
                     <div className="shrink-0 w-14 h-14 rounded-xl border border-zinc-700 bg-zinc-900 flex items-center justify-center group-hover:border-zinc-500 transition-colors duration-300">
-                      <Globe
+                      <Icon
                         size={24}
                         className="text-zinc-300 group-hover:text-white transition-colors duration-300"
                       />
@@ -79,15 +98,15 @@ export default function RedesSociais() {
                         {social.name}
                       </h3>
 
-                      <p className="mt-1 text-zinc-500 font-mono text-xs tracking-[0.1em]">
-                        {"//"} Clique na logo para ser direcionado até nosso
-                        perfil.
+                      <p className="mt-1 text-zinc-500 font-mono text-xs leading-relaxed">
+                        {social.lore}
                       </p>
                     </div>
                   </div>
                 </SectionCard>
               </a>
-            ))}
+            );
+          })}
 
             <SectionCard glow className="p-6 md:p-8">
               <div className="flex items-center gap-5">

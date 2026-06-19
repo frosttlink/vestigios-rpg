@@ -1,162 +1,160 @@
-import { BookOpen } from "lucide-react";
+"use client"
+
 import Link from "next/link";
+import Image from "next/image";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
-import { SectionCard } from "@/components/section-card";
 
 interface BookEntry {
-  title: string;
-  description?: string;
-  code?: string;
-  status: "available" | "soon";
+  title: string
+  description?: string
+  code?: string
+  status: "available" | "soon"
+  image?: string
+  link?: string
 }
 
 const BOOKS: BookEntry[] = [
   {
-    title: "Caixa de Pandora",
-    description:
-      "Documentos confidenciais encontrados durante as investigações.",
-    code: "MUVWNEY2Vm85WE5ocnV5eERHZXM0VEd5UDBVcmx3SllD",
+    title: "Fichas de jogador oficial de Vestígios RPG",
     status: "available",
+    image: "/ficha-ofc.jpeg",
+    link: "https://drive.google.com/file/d/18t0rrx56M087AK-ZRj2EEHdSXmqcSWQd/view",
   },
   {
     title: "Livro de regras e sistema de Vestígios RPG",
     status: "available",
+    image: "/guia-basico.jpeg",
+    link: "https://docs.google.com/document/d/1UAfO5_sJZYXKasnBu9qwJ4VdkPlLAGzrg11YUlxosrU/edit?usp=drivesdk",
   },
   {
     title: "Ameaças e Personagens oficiais do sistema de Vestígios RPG",
-    status: "available",
+    status: "soon",
+    image: "/placeholder-book.jpeg",
   },
   {
     title: "Campanhas e Temporadas prontas oficiais do sistema Vestígios RPG",
     status: "soon",
+    image: "/placeholder-book.jpeg",
   },
   {
-    title:
-      "HQ da Linha principal da história da campanha oficial de Vestígios RPG",
+    title: "HQ da Linha principal da história da campanha oficial de Vestígios RPG",
     status: "soon",
+    image: "/placeholder-book.jpeg",
   },
 ];
+
 
 export default function Biblioteca() {
   return (
     <>
       <Header />
 
-      <main className="min-h-screen bg-black text-zinc-100">
-        <div className="max-w-5xl mx-auto px-6 pt-28 pb-24">
-          <div className="mb-14">
+      <main className="min-h-screen bg-black text-zinc-100 selection:bg-zinc-800 selection:text-white">
+        <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-24">
+
+          {/* HEADER DA PÁGINA */}
+          <div className="mb-20">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-2 h-2 bg-zinc-300 rounded-full animate-pulse" />
-              <span className="font-mono text-xs tracking-[0.3em] text-zinc-500 uppercase">
+              <span className="font-mono text-xs tracking-[0.3em] text-zinc-500 uppercase flex items-center gap-2">
+                <span className="w-2 h-2 bg-zinc-700 rounded-full"></span>
                 Acervo
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-black font-mono tracking-[0.05em] text-zinc-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            <h1 className="text-5xl md:text-6xl font-black font-mono tracking-widest text-zinc-100">
               [BIBLIOTECA]
             </h1>
 
-            <p className="mt-4 text-zinc-500 font-mono text-sm">
+            <p className="mt-4 text-zinc-500 font-mono text-sm tracking-wide">
               {"// ACERVO DE DOCUMENTOS, LIVROS E MATERIAIS"}
             </p>
 
-            <div className="mt-8">
+            <div className="mt-10">
               <Link
                 href="/"
-                className="
-                  inline-flex items-center gap-2
-                  px-4 py-2
-                  border border-zinc-800
-                  text-zinc-400 font-mono text-xs tracking-[0.2em]
-                  rounded-lg
-                  hover:border-zinc-600 hover:text-zinc-200
-                  transition-all duration-300
-                "
+                className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-800 bg-zinc-950 text-zinc-400 font-mono text-xs tracking-[0.2em] rounded-lg hover:border-zinc-500 hover:text-zinc-100 transition-all duration-300"
               >
-                {"[VOLTAR]"}
+                [ VOLTAR ]
               </Link>
             </div>
           </div>
 
-          <div className="space-y-5">
+          {/* GRID BIBLIOTECA */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-8 gap-y-16">
             {BOOKS.map((book) => (
-              <SectionCard
-                key={book.title}
-                glow={book.status === "available"}
-                className={`p-6 md:p-8 ${book.status === "soon" ? "opacity-50" : ""}`}
+              <div
+                key={book.title || Math.random().toString()}
+                className={`group flex flex-col transition-all duration-500 ${
+                  book.status === "soon" ? "opacity-50 grayscale hover:grayscale-0" : ""
+                }`}
               >
-                <div className="flex items-start gap-4">
-                  <div
-                    className={`
-                      shrink-0 w-10 h-10 rounded-lg border flex items-center justify-center
-                      ${book.status === "available" ? "border-zinc-700 bg-zinc-900" : "border-zinc-800/50 bg-zinc-950/50"}
-                    `}
-                  >
-                    <BookOpen
-                      size={18}
-                      className={
-                        book.status === "available"
-                          ? "text-zinc-300"
-                          : "text-zinc-700"
-                      }
+                {/* CAPA DO LIVRO (FIX: Altura explícita para evitar overlap) */}
+                <div className="relative w-full h-80 max-w-60 mb-6 shrink-0">
+                  <div className="absolute inset-0 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:-translate-y-3 group-hover:scale-[1.02] group-hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] group-hover:border-zinc-700">
+                    
+                    <Image
+                      src={book.image || "/placeholder-book.jpeg"}
+                      alt={book.title || "Livro sem título"}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                  </div>
 
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-3 flex-wrap">
-                      <h3
-                        className={`
-                          font-mono font-semibold text-sm md:text-base
-                          ${book.status === "available" ? "text-zinc-200" : "text-zinc-600"}
-                        `}
-                      >
-                        {book.title}
-                      </h3>
-
-                      <span
-                        className={`
-                          font-mono text-[10px] tracking-[0.2em] uppercase px-2 py-0.5 rounded border
-                          ${book.status === "available" ? "border-zinc-700 text-zinc-400" : "border-zinc-800 text-zinc-700"}
-                        `}
-                      >
-                        {book.status === "available"
-                          ? "(disponível)"
-                          : "(em breve)"}
-                      </span>
-                    </div>
-
-                    {book.description && (
-                      <p className="mt-2 text-zinc-500 font-mono text-xs leading-relaxed">
-                        {book.description}
-                      </p>
-                    )}
-
-                    {book.code && (
-                      <div className="mt-4 bg-black/60 border border-zinc-800 rounded-lg p-4">
-                        <div className="flex items-center gap-2 mb-2">
-                          <div className="w-1.5 h-1.5 rounded-full bg-zinc-600" />
-                          <span className="font-mono text-[10px] tracking-[0.2em] text-zinc-600 uppercase">
-                            Dados codificados
-                          </span>
-                        </div>
-                        <code className="block font-mono text-xs text-zinc-400 break-all leading-relaxed select-all">
-                          {book.code}
-                        </code>
-                      </div>
-                    )}
+                    {/* OVERLAY CINEMÁTICO */}
+                    <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/20 to-white/5 transition-opacity duration-500 group-hover:opacity-80" />
                   </div>
                 </div>
-              </SectionCard>
+
+                {/* INFORMAÇÕES DO LIVRO (FIX: z-20 garante que o texto fique acima da imagem) */}
+                <div className="flex flex-col max-w-60 relative z-20">
+                  {/* STATUS COM INDICADOR VISUAL */}
+                  <div className="flex items-center gap-2 mb-3">
+                    {book.status === "available" ? (
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.8)] animate-pulse shrink-0" />
+                    ) : (
+                      <span className="w-1.5 h-1.5 rounded-full bg-zinc-700 shrink-0" />
+                    )}
+                    <span className="text-[10px] font-mono tracking-[0.2em] uppercase text-zinc-400 group-hover:text-zinc-300 transition-colors">
+                      {book.status === "available" ? "disponível" : "em breve"}
+                    </span>
+                  </div>
+
+                  {/* TÍTULO */}
+                  <h3 className="font-mono text-sm md:text-base font-medium text-zinc-200 leading-relaxed group-hover:text-white transition-colors">
+                    {book.title || "[ TÍTULO DESCONHECIDO ]"}
+                  </h3>
+
+                  {/* BOTÃO ACESSAR */}
+                  {book.status === "available" && book.link && (
+                    <div className="mt-5 group-hover:opacity-100 transition-all duration-300">
+                      <Link
+                        href={book.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-zinc-400 border border-zinc-800 px-4 py-2 rounded hover:bg-zinc-800 hover:text-zinc-100 transition-colors cursor-pointer"
+                      >
+                        [ ACESSAR ]
+                      </Link>
+                    </div>
+                  )}
+                </div>
+              </div>
             ))}
           </div>
 
-          <div className="mt-14 text-center">
-            <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-700">
+          {/* FOOTER TEXTO */}
+          <div className="mt-32 text-center border-t border-zinc-900 pt-10">
+            <p className="font-mono text-[10px] tracking-[0.4em] text-zinc-600">
               {"// O CONHECIMENTO É UM VESTÍGIO"}
             </p>
           </div>
+          
+          <p className="text-zinc-900/5 select-text font-mono tracking-wides cursor-default">
+            caixa de pandora: MUVWNEY2Vm85WE5ocnV5eERHZXM0VEd5UDBVcmx3SllD
+          </p>
+
         </div>
+
       </main>
 
       <Footer />

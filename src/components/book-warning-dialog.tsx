@@ -4,11 +4,12 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef } from "react";
 
 interface BookWarningDialogProps {
-  isOpen: boolean;
-  onClose: () => void;
+  isOpen: boolean
+  onClose: () => void
+  onConfirm: () => void
 }
 
-export function BookWarningDialog({ isOpen, onClose }: BookWarningDialogProps) {
+export function BookWarningDialog({ isOpen, onClose, onConfirm }: BookWarningDialogProps) {
   const router = useRouter();
   const dialogRef = useRef<HTMLDivElement>(null);
 
@@ -32,7 +33,7 @@ export function BookWarningDialog({ isOpen, onClose }: BookWarningDialogProps) {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-100 flex items-center justify-center bg-black/80 backdrop-blur-sm">
       <div
         ref={dialogRef}
         tabIndex={-1}
@@ -83,7 +84,7 @@ export function BookWarningDialog({ isOpen, onClose }: BookWarningDialogProps) {
           <div className="flex items-center gap-4">
             <button
               type="button"
-              onClick={() => router.push("/biblioteca")}
+              onClick={onConfirm}
               className="
                 flex-1 px-6 py-3
                 border border-zinc-700

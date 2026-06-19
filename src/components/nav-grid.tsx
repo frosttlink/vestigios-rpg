@@ -1,5 +1,5 @@
 import type { LucideIcon } from "lucide-react";
-import { BookOpen, Puzzle, Sparkles } from "lucide-react";
+import { BookOpen, Globe, Puzzle, Sparkles } from "lucide-react";
 import Link from "next/link";
 
 interface NavItem {
@@ -13,7 +13,7 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   {
     href: "/redes-sociais",
-    icon: null,
+    icon: Globe,
     title: "Redes Sociais",
     desc: "Acompanhe novidades e projetos.",
   },
@@ -40,7 +40,9 @@ const NAV_ITEMS: NavItem[] = [
 
 export function NavGrid() {
   return (
-    <section className="grid md:grid-cols-4 gap-6 mb-32">
+    <>
+    <section className="relative grid md:grid-cols-4 gap-6 mb-32">
+
       {NAV_ITEMS.map((item) => {
         if (item.disabled) {
           return (
@@ -67,7 +69,7 @@ export function NavGrid() {
               <div className="relative">
                 {item.icon && <item.icon size={24} className="text-zinc-700" />}
 
-                <h3 className="mt-6 text-xl font-mono font-semibold text-zinc-700 tracking-[0.1em]">
+                <h3 className="mt-6 text-xl font-mono font-semibold text-zinc-700 tracking-widest">
                   {item.title}
                 </h3>
 
@@ -114,5 +116,6 @@ export function NavGrid() {
         );
       })}
     </section>
-  );
+    </>
+  )
 }

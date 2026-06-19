@@ -20,7 +20,7 @@ export function RedactedSection() {
             </span>
           </div>
 
-          <h2 className="text-5xl font-black font-mono tracking-[0.1em] text-zinc-800 select-none">
+          <h2 className="text-5xl font-black font-mono tracking-widest text-zinc-800 select-none">
             [REDACTED]
           </h2>
 
