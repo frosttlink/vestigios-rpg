@@ -30,17 +30,17 @@ const BOOKS: BookEntry[] = [
   {
     title: "Ameaças e Personagens oficiais do sistema de Vestígios RPG",
     status: "soon",
-    image: "/placeholder-book.jpeg",
+    image: "/placeholder.jpg",
   },
   {
     title: "Campanhas e Temporadas prontas oficiais do sistema Vestígios RPG",
     status: "soon",
-    image: "/placeholder-book.jpeg",
+    image: "/placeholder.jpg",
   },
   {
     title: "HQ da Linha principal da história da campanha oficial de Vestígios RPG",
     status: "soon",
-    image: "/placeholder-book.jpeg",
+    image: "/placeholder.jpg",
   },
 ];
 
@@ -94,7 +94,7 @@ export default function Biblioteca() {
                   <div className="absolute inset-0 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:-translate-y-3 group-hover:scale-[1.02] group-hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] group-hover:border-zinc-700">
                     
                     <Image
-                      src={book.image || "/placeholder-book.jpeg"}
+                      src={book.image || "/placeholder.jpg"}
                       alt={book.title || "Livro sem título"}
                       fill
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
