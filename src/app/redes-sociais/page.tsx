@@ -1,8 +1,18 @@
-import { AdIcon, Globe, HeartHandshake, X, MessageCircle, Play, Camera } from "lucide-react";
+import { Suspense } from "react";
+import {
+  AdIcon,
+  Camera,
+  Globe,
+  HeartHandshake,
+  MessageCircle,
+  Play,
+  X,
+} from "lucide-react";
 import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { SectionCard } from "@/components/section-card";
+import { YouTubeFeed, YouTubeFeedSkeleton } from "@/components/youtube-feed";
 
 const SOCIAL_LINKS = [
   {
@@ -74,39 +84,39 @@ export default function RedesSociais() {
 
           <div className="space-y-5">
             {SOCIAL_LINKS.map((social) => {
-            const Icon = social.icon;
+              const Icon = social.icon;
 
-            return (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block group"
-              >
-                <SectionCard hover glow className="p-6 md:p-8 cursor-pointer">
-                  <div className="flex items-center gap-5">
-                    <div className="shrink-0 w-14 h-14 rounded-xl border border-zinc-700 bg-zinc-900 flex items-center justify-center group-hover:border-zinc-500 transition-colors duration-300">
-                      <Icon
-                        size={24}
-                        className="text-zinc-300 group-hover:text-white transition-colors duration-300"
-                      />
+              return (
+                <a
+                  key={social.name}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group"
+                >
+                  <SectionCard hover glow className="p-6 md:p-8 cursor-pointer">
+                    <div className="flex items-center gap-5">
+                      <div className="shrink-0 w-14 h-14 rounded-xl border border-zinc-700 bg-zinc-900 flex items-center justify-center group-hover:border-zinc-500 transition-colors duration-300">
+                        <Icon
+                          size={24}
+                          className="text-zinc-300 group-hover:text-white transition-colors duration-300"
+                        />
+                      </div>
+
+                      <div>
+                        <h3 className="font-mono font-semibold text-zinc-200 group-hover:text-white transition-colors duration-300">
+                          {social.name}
+                        </h3>
+
+                        <p className="mt-1 text-zinc-500 font-mono text-xs leading-relaxed">
+                          {social.lore}
+                        </p>
+                      </div>
                     </div>
-
-                    <div>
-                      <h3 className="font-mono font-semibold text-zinc-200 group-hover:text-white transition-colors duration-300">
-                        {social.name}
-                      </h3>
-
-                      <p className="mt-1 text-zinc-500 font-mono text-xs leading-relaxed">
-                        {social.lore}
-                      </p>
-                    </div>
-                  </div>
-                </SectionCard>
-              </a>
-            );
-          })}
+                  </SectionCard>
+                </a>
+              );
+            })}
 
             <SectionCard glow className="p-6 md:p-8">
               <div className="flex items-center gap-5">
@@ -146,6 +156,10 @@ export default function RedesSociais() {
               </div>
             </SectionCard>
           </div>
+
+          <Suspense fallback={<YouTubeFeedSkeleton />}>
+            <YouTubeFeed />
+          </Suspense>
 
           <div className="mt-20">
             <SectionCard className="p-8 relative overflow-hidden">

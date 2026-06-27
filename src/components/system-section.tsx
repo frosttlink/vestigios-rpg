@@ -1,8 +1,8 @@
 "use client";
 
 import { BookOpen } from "lucide-react";
-import { useState } from "react";
 import Image from "next/image";
+import { useState } from "react";
 
 import { BookWarningDialog } from "@/components/book-warning-dialog";
 import { SectionCard } from "@/components/section-card";
@@ -18,21 +18,7 @@ export function SystemSection() {
           className="p-8 md:p-12 grid items-center gap-12 lg:grid-cols-[320px_1fr]"
         >
           <div className="relative flex justify-center perspective-distant">
-            <div
-              className="
-                relative
-                overflow-hidden
-                rounded-xl
-                border border-zinc-800
-                bg-zinc-900
-                shadow-[0_30px_80px_rgba(0,0,0,0.6)]
-                transition-all duration-700
-                origin-right
-                transform-3d
-                hover:transform-[rotateY(25deg)]
-                hover:shadow-[0_40px_120px_rgba(255,255,255,0.08)]
-              "
-            >
+            <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-[0_30px_80px_rgba(0,0,0,0.6)] transition-all duration-700 origin-right transform-3d hover:transform-[rotateY(25deg)] hover:shadow-[0_40px_120px_rgba(255,255,255,0.08)]">
               <Image
                 src="/guia-basico.jpeg"
                 alt="Capa do livro de regras"
@@ -66,20 +52,7 @@ export function SystemSection() {
             <button
               type="button"
               onClick={() => setShowWarning(true)}
-              className="
-              inline-flex items-center gap-3
-              rounded-lg
-              border border-zinc-700
-              bg-zinc-900/40
-              px-7 py-4
-              font-mono text-sm uppercase tracking-[0.2em]
-              text-zinc-200
-              transition-all duration-500
-              hover:border-zinc-400
-              hover:bg-zinc-800/40
-              hover:text-white
-              hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]
-            "
+              className="inline-flex items-center gap-3 rounded-lg border border-zinc-700 bg-zinc-900/40 px-7 py-4 font-mono text-sm uppercase tracking-[0.2em] text-zinc-200 transition-all duration-500 hover:border-zinc-400 hover:bg-zinc-800/40 hover:text-white hover:shadow-[0_0_40px_rgba(255,255,255,0.08)]"
             >
               <BookOpen size={16} />
               Acessar Sistema
@@ -89,16 +62,16 @@ export function SystemSection() {
       </section>
 
       <BookWarningDialog
-      isOpen={showWarning}
-      onClose={() => setShowWarning(false)}
-      onConfirm={() => {
-        window.open(
-          "https://docs.google.com/document/d/1UAfO5_sJZYXKasnBu9qwJ4VdkPlLAGzrg11YUlxosrU/edit?usp=drivesdk",
-          "_blank",          
-        );
-        setShowWarning(false);
-      }}
-/>
+        isOpen={showWarning}
+        onClose={() => setShowWarning(false)}
+        onConfirm={() => {
+          window.open(
+            "https://docs.google.com/document/d/1UAfO5_sJZYXKasnBu9qwJ4VdkPlLAGzrg11YUlxosrU/edit?usp=drivesdk",
+            "_blank",
+          );
+          setShowWarning(false);
+        }}
+      />
     </>
   );
 }
