@@ -1,5 +1,5 @@
-import { ArrowRight } from "lucide-react"
-import Image from "next/image"
+import { ArrowRight } from "lucide-react";
+import Image from "next/image";
 
 const PARTICLES = [
   { x: "15%", y: "20%", delay: "0s", size: 3 },
@@ -10,17 +10,17 @@ const PARTICLES = [
   { x: "60%", y: "15%", delay: "2.5s", size: 2 },
   { x: "10%", y: "55%", delay: "3s", size: 3 },
   { x: "90%", y: "45%", delay: "0.8s", size: 2 },
-]
+];
 
 export function HeroSection() {
   return (
     <section className="relative h-screen overflow-hidden">
-
-      {/* Effects */} 
+      {/* Effects */}
       <div
         className="absolute inset-0 animate-bg-shift"
         style={{
-          background: "radial-gradient(circle at 50% 40%, #1a1a1a 0%, #000000 80%)",
+          background:
+            "radial-gradient(circle at 50% 40%, #1a1a1a 0%, #000000 80%)",
         }}
       />
 
@@ -36,7 +36,8 @@ export function HeroSection() {
       <div
         className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
-          backgroundImage: "linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.12) 50%)",
+          backgroundImage:
+            "linear-gradient(to bottom, transparent 50%, rgba(255,255,255,0.12) 50%)",
           backgroundSize: "100% 4px",
         }}
       />
@@ -44,7 +45,8 @@ export function HeroSection() {
       <div
         className="absolute inset-0 opacity-[0.02]"
         style={{
-          backgroundImage: "linear-gradient(0deg, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05) 76%, transparent 77%)",
+          backgroundImage:
+            "linear-gradient(0deg, transparent 24%, rgba(255,255,255,0.05) 25%, rgba(255,255,255,0.05) 26%, transparent 27%, transparent 74%, rgba(255,255,255,0.05) 75%, rgba(255,255,255,0.05) 76%, transparent 77%)",
           backgroundSize: "60px 60px",
         }}
       />
@@ -68,7 +70,8 @@ export function HeroSection() {
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
-          background: "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), transparent 60%)",
+          background:
+            "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), transparent 60%)",
           animation: "pulse-glow 4s ease-in-out infinite",
         }}
       />
@@ -84,9 +87,11 @@ export function HeroSection() {
 
           <div className="relative flex justify-center mb-8 animate-fade-slide-up-delay">
             {/* Glow atrás */}
-            <div className="absolute inset-0 blur-3xl opacity-30 animate-pulse"
+            <div
+              className="absolute inset-0 blur-3xl opacity-30 animate-pulse"
               style={{
-                background: "radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%)",
+                background:
+                  "radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%)",
               }}
             />
 
@@ -123,7 +128,8 @@ export function HeroSection() {
             <div
               className="absolute inset-0 opacity-10 blur-xl animate-fog pointer-events-none"
               style={{
-                background: "linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent)",
+                background:
+                  "linear-gradient(90deg, transparent, rgba(255,255,255,.5), transparent)",
               }}
             />
           </div>
@@ -157,5 +163,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

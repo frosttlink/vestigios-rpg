@@ -70,7 +70,7 @@ export function ClueTerminal({
       <div className="flex items-start gap-3">
         <span className="text-zinc-500 shrink-0">{">"}</span>
 
-        <div className="leading-relaxed">
+        <div className="leading-relaxed min-w-0 flex-1 wrap-break-word">
           {displayedText}
           <span className="animate-pulse text-zinc-100 ml-1">_</span>
         </div>

@@ -1,17 +1,9 @@
+import { Camera, HeartHandshake, MessageCircle, Play, X } from "lucide-react";
 import { Suspense } from "react";
-import {
-  AdIcon,
-  Camera,
-  Globe,
-  HeartHandshake,
-  MessageCircle,
-  Play,
-  X,
-} from "lucide-react";
-import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { SectionCard } from "@/components/section-card";
+import { BackButton } from "@/components/ui/back-button";
 import { YouTubeFeed, YouTubeFeedSkeleton } from "@/components/youtube-feed";
 
 const SOCIAL_LINKS = [
@@ -25,7 +17,7 @@ const SOCIAL_LINKS = [
     name: "Instagram",
     href: "https://www.instagram.com/vestigios_rpg",
     icon: Camera,
-    lore: "Registros visuais do mundo em colapso. Evidências e artefatos dos vestígios encontrados.",
+    lore: "Registros visuais do mundo em colapso. Evidências, artefatos. Nem toda fotografia mostra tudo o que realmente estava lá.",
   },
   {
     name: "Youtube",
@@ -47,11 +39,11 @@ export default function RedesSociais() {
       <Header />
 
       <main className="min-h-screen bg-black text-zinc-100">
-        <div className="max-w-3xl mx-auto px-6 pt-28 pb-24">
+        <div className="max-w-6xl mx-auto px-6 pt-28 pb-24">
           <div className="mb-14">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 bg-zinc-300 rounded-full animate-pulse" />
-              <span className="font-mono text-xs tracking-[0.3em] text-zinc-500 uppercase">
+              <span className="font-mono text-xs tracking-[0.3em] text-zinc-500 uppercase z-20">
                 Conexões
               </span>
             </div>
@@ -60,29 +52,16 @@ export default function RedesSociais() {
               [REDES SOCIAIS]
             </h1>
 
-            <p className="mt-4 text-zinc-500 font-mono text-sm">
+            <p className="relative mt-4 text-zinc-500 font-mono text-sm ">
               {"// ACOMPANHE NOVIDADES E PROJETOS"}
             </p>
 
-            <div className="mt-8">
-              <Link
-                href="/"
-                className="
-                  inline-flex items-center gap-2
-                  px-4 py-2
-                  border border-zinc-800
-                  text-zinc-400 font-mono text-xs tracking-[0.2em]
-                  rounded-lg
-                  hover:border-zinc-600 hover:text-zinc-200
-                  transition-all duration-300
-                "
-              >
-                {"[VOLTAR]"}
-              </Link>
+            <div className="relative mt-8 ">
+              <BackButton />
             </div>
           </div>
 
-          <div className="space-y-5">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             {SOCIAL_LINKS.map((social) => {
               const Icon = social.icon;
 
@@ -94,7 +73,11 @@ export default function RedesSociais() {
                   rel="noopener noreferrer"
                   className="block group"
                 >
-                  <SectionCard hover glow className="p-6 md:p-8 cursor-pointer">
+                  <SectionCard
+                    hover
+                    glow
+                    className="p-6 md:p-8 cursor-pointer min-h-37.5"
+                  >
                     <div className="flex items-center gap-5">
                       <div className="shrink-0 w-14 h-14 rounded-xl border border-zinc-700 bg-zinc-900 flex items-center justify-center group-hover:border-zinc-500 transition-colors duration-300">
                         <Icon
@@ -118,7 +101,7 @@ export default function RedesSociais() {
               );
             })}
 
-            <SectionCard glow className="p-6 md:p-8">
+            <SectionCard glow className="p-6 md:p-8 lg:col-span-2">
               <div className="flex items-center gap-5">
                 <div className="shrink-0 w-14 h-14 rounded-xl border border-zinc-700 bg-zinc-900 flex items-center justify-center">
                   <HeartHandshake size={24} className="text-zinc-300" />
@@ -129,7 +112,7 @@ export default function RedesSociais() {
                     Apoie o Projeto
                   </h3>
 
-                  <p className="mt-1 text-zinc-500 font-mono text-xs tracking-[0.1em]">
+                  <p className="mt-1 text-zinc-500 font-mono text-xs tracking-widest">
                     {"//"} Contribua para o universo Vestígios continuar
                     crescendo.
                   </p>
@@ -142,14 +125,14 @@ export default function RedesSociais() {
                       mt-4 inline-flex items-center gap-2
                       px-5 py-2.5
                       border border-zinc-700
-                      rounded-lg
+                      rounded-lg break-all
                       text-zinc-200 font-mono text-xs uppercase tracking-[0.2em]
                       hover:border-zinc-400 hover:text-white
                       hover:shadow-[0_0_30px_rgba(255,255,255,0.08)]
                       transition-all duration-300
                     "
                   >
-                    <HeartHandshake size={14} />
+                    {/* <HeartHandshake size={14} classname=""/> */}
                     livepix.gg/vestigiosrpg
                   </a>
                 </div>

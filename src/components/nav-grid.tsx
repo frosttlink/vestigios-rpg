@@ -40,9 +40,7 @@ const NAV_ITEMS: NavItem[] = [
 
 export function NavGrid() {
   return (
-    <>
     <section className="relative grid md:grid-cols-4 gap-6 mb-32">
-
       {NAV_ITEMS.map((item) => {
         if (item.disabled) {
           return (
@@ -116,6 +114,5 @@ export function NavGrid() {
         );
       })}
     </section>
-    </>
-  )
+  );
 }

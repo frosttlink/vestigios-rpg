@@ -1,4 +1,4 @@
-import { BookOpen, Eye, Globe, Menu, Puzzle } from "lucide-react";
+import { BookOpen, Eye, Globe, Menu } from "lucide-react";
 import Link from "next/link";
 
 interface HeaderProps {
@@ -8,7 +8,7 @@ interface HeaderProps {
 export function Header({ variant = "compact" }: HeaderProps) {
   if (variant === "hero") {
     return (
-      <header className="absolute top-0 left-0 right-0 z-50">
+      <header className="absolute top-0 left-0 right-0 z-20">
         <nav className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 text-white">
@@ -59,7 +59,7 @@ export function Header({ variant = "compact" }: HeaderProps) {
           </div>
         </nav>
       </header>
-    )
+    );
   }
 
   return (
@@ -89,13 +89,6 @@ export function Header({ variant = "compact" }: HeaderProps) {
             </Link>
 
             <Link
-              href="/enigmas"
-              className="text-zinc-400 hover:text-zinc-100 transition"
-            >
-              <Puzzle size={18} />
-            </Link>
-
-            <Link
               href="/redes-sociais"
               className="text-zinc-400 hover:text-zinc-100 transition"
             >
@@ -116,5 +109,5 @@ export function Header({ variant = "compact" }: HeaderProps) {
         </div>
       </nav>
     </header>
-  )
+  );
 }

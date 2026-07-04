@@ -1,17 +1,18 @@
-"use client"
+"use client";
 
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
+import { BackButton } from "@/components/ui/back-button";
 
 interface BookEntry {
-  title: string
-  description?: string
-  code?: string
-  status: "available" | "soon"
-  image?: string
-  link?: string
+  title: string;
+  description?: string;
+  code?: string;
+  status: "available" | "soon";
+  image?: string;
+  link?: string;
 }
 
 const BOOKS: BookEntry[] = [
@@ -29,8 +30,9 @@ const BOOKS: BookEntry[] = [
   },
   {
     title: "Ameaças e Personagens oficiais do sistema de Vestígios RPG",
-    status: "soon",
-    image: "/placeholder.jpg",
+    status: "available",
+    image: "/ficha-am.jpeg",
+    link: "https://drive.google.com/file/d/1lwFvTnMyWua-GAo2bXvRTILaPHLDwqsl/view?usp=drivesdk",
   },
   {
     title: "Campanhas e Temporadas prontas oficiais do sistema Vestígios RPG",
@@ -38,12 +40,12 @@ const BOOKS: BookEntry[] = [
     image: "/placeholder.jpg",
   },
   {
-    title: "HQ da Linha principal da história da campanha oficial de Vestígios RPG",
+    title:
+      "HQ da Linha principal da história da campanha oficial de Vestígios RPG",
     status: "soon",
     image: "/placeholder.jpg",
   },
 ];
-
 
 export default function Biblioteca() {
   return (
@@ -52,17 +54,16 @@ export default function Biblioteca() {
 
       <main className="min-h-screen bg-black text-zinc-100 selection:bg-zinc-800 selection:text-white">
         <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-24">
-
           {/* HEADER DA PÁGINA */}
           <div className="mb-20">
             <div className="flex items-center gap-3 mb-4">
+              <div className="w-2 h-2 bg-zinc-300 rounded-full animate-pulse" />
               <span className="font-mono text-xs tracking-[0.3em] text-zinc-500 uppercase flex items-center gap-2">
-                <span className="w-2 h-2 bg-zinc-700 rounded-full"></span>
                 Acervo
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-black font-mono tracking-widest text-zinc-100">
+            <h1 className="text-5xl md:text-6xl font-black font-mono tracking-wider text-zinc-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
               [BIBLIOTECA]
             </h1>
 
@@ -70,14 +71,7 @@ export default function Biblioteca() {
               {"// ACERVO DE DOCUMENTOS, LIVROS E MATERIAIS"}
             </p>
 
-            <div className="mt-10">
-              <Link
-                href="/"
-                className="inline-flex items-center gap-2 px-5 py-2.5 border border-zinc-800 bg-zinc-950 text-zinc-400 font-mono text-xs tracking-[0.2em] rounded-lg hover:border-zinc-500 hover:text-zinc-100 transition-all duration-300"
-              >
-                [ VOLTAR ]
-              </Link>
-            </div>
+            <BackButton />
           </div>
 
           {/* GRID BIBLIOTECA */}
@@ -86,13 +80,14 @@ export default function Biblioteca() {
               <div
                 key={book.title || Math.random().toString()}
                 className={`group flex flex-col transition-all duration-500 ${
-                  book.status === "soon" ? "opacity-50 grayscale hover:grayscale-0" : ""
+                  book.status === "soon"
+                    ? "opacity-50 grayscale hover:grayscale-0"
+                    : ""
                 }`}
               >
                 {/* CAPA DO LIVRO (FIX: Altura explícita para evitar overlap) */}
                 <div className="relative w-full h-80 max-w-60 mb-6 shrink-0">
                   <div className="absolute inset-0 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:-translate-y-3 group-hover:scale-[1.02] group-hover:shadow-[0_20px_50px_rgba(255,255,255,0.05)] group-hover:border-zinc-700">
-                    
                     <Image
                       src={book.image || "/placeholder.jpg"}
                       alt={book.title || "Livro sem título"}
@@ -148,13 +143,11 @@ export default function Biblioteca() {
               {"// O CONHECIMENTO É UM VESTÍGIO"}
             </p>
           </div>
-          
+
           <p className="text-zinc-900/5 select-text font-mono tracking-wides cursor-default">
             caixa de pandora: MUVWNEY2Vm85WE5ocnV5eERHZXM0VEd5UDBVcmx3SllD
           </p>
-
         </div>
-
       </main>
 
       <Footer />
