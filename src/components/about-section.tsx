@@ -5,7 +5,7 @@ export function AboutSection() {
   return (
     <section className="mb-32">
       <div className="grid lg:grid-cols-[1.5fr_1fr] gap-8">
-        <SectionCard glow className="p-10 md:p-16">
+        <SectionCard glow className="p-6 md:p-16">
           <div className="flex items-center gap-3 mb-10">
             <span className="w-2 h-2 rounded-full bg-zinc-500" />
             <span className="font-mono text-xs tracking-[0.3em] text-zinc-500 uppercase">
@@ -13,7 +13,7 @@ export function AboutSection() {
             </span>
           </div>
 
-          <h2 className="text-4xl font-black font-mono tracking-wider mb-10 text-zinc-100">
+          <h2 className="text-2xl md:text-4xl font-black font-mono tracking-wider mb-10 text-zinc-100">
             [O QUE NÓS SOMOS?]
           </h2>
 
@@ -34,7 +34,7 @@ export function AboutSection() {
           </div>
         </SectionCard>
 
-        <SectionCard glow className="p-10 md:p-16">
+        <SectionCard glow className="p-6 md:p-16">
           <div className="flex items-center gap-3 mb-10">
             <span className="w-2 h-2 rounded-full bg-zinc-500" />
             <span className="font-mono text-xs tracking-[0.3em] text-zinc-500 uppercase">
@@ -42,7 +42,7 @@ export function AboutSection() {
             </span>
           </div>
 
-          <h2 className="text-4xl font-black font-mono tracking-wider mb-6 text-zinc-100">
+          <h2 className="text-2xl md:text-4xl font-black font-mono tracking-wider mb-6 text-zinc-100">
             [AJUDE O PROJETO A CONTINUAR!]
           </h2>
 

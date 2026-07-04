@@ -40,7 +40,7 @@ const NAV_ITEMS: NavItem[] = [
 
 export function NavGrid() {
   return (
-    <section className="relative grid md:grid-cols-4 gap-6 mb-32">
+    <section className="relative grid md:grid-cols-4 gap-4 md:gap-6 mb-32">
       {NAV_ITEMS.map((item) => {
         if (item.disabled) {
           return (
@@ -49,7 +49,7 @@ export function NavGrid() {
               className="
                 bg-zinc-950/50
                 border border-zinc-800/50
-                rounded-xl p-8
+                rounded-xl p-6 md:p-8
                 cursor-not-allowed
                 select-none
                 relative overflow-hidden
@@ -86,15 +86,15 @@ export function NavGrid() {
             key={item.title}
             href={item.href as string}
             className="
-              group
-              bg-zinc-950/70 backdrop-blur-sm
-              border border-zinc-800
-              rounded-xl p-8
-              hover:border-zinc-600
-              hover:shadow-[0_0_40px_rgba(255,255,255,0.06)]
-              hover:-translate-y-1
-              transition-all duration-500
-            "
+                group
+                bg-zinc-950/70 backdrop-blur-sm
+                border border-zinc-800
+                rounded-xl p-6 md:p-8
+                hover:border-zinc-600
+                hover:shadow-[0_0_40px_rgba(255,255,255,0.06)]
+                hover:-translate-y-1
+                transition-all duration-500
+              "
           >
             {Icon && (
               <Icon

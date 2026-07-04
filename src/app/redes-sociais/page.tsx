@@ -6,6 +6,16 @@ import { SectionCard } from "@/components/section-card";
 import { BackButton } from "@/components/ui/back-button";
 import { YouTubeFeed, YouTubeFeedSkeleton } from "@/components/youtube-feed";
 
+const PARTICLES = [
+  { x: "10%", y: "15%", delay: "0s", size: 2 },
+  { x: "85%", y: "25%", delay: "1.2s", size: 1.5 },
+  { x: "20%", y: "45%", delay: "2.5s", size: 2.5 },
+  { x: "75%", y: "60%", delay: "0.6s", size: 1.5 },
+  { x: "50%", y: "80%", delay: "1.8s", size: 2 },
+  { x: "90%", y: "10%", delay: "3s", size: 1.5 },
+  { x: "40%", y: "35%", delay: "0.3s", size: 2 },
+];
+
 const SOCIAL_LINKS = [
   {
     name: "X (Twitter)",
@@ -38,8 +48,25 @@ export default function RedesSociais() {
     <>
       <Header />
 
-      <main className="min-h-screen bg-black text-zinc-100">
-        <div className="max-w-6xl mx-auto px-6 pt-28 pb-24">
+      <main className="relative min-h-screen bg-black text-zinc-100 overflow-hidden">
+        {/* PARTÍCULAS FLUTUANTES */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          {PARTICLES.map((p) => (
+            <div
+              key={`${p.x}-${p.y}`}
+              className="absolute rounded-full bg-zinc-500"
+              style={{
+                left: p.x,
+                top: p.y,
+                width: p.size,
+                height: p.size,
+                animation: `float-particle 6s ease-in-out ${p.delay} infinite`,
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-6 pt-28 pb-24">
           <div className="mb-14">
             <div className="flex items-center gap-3 mb-4">
               <div className="w-2 h-2 bg-zinc-300 rounded-full animate-pulse" />
@@ -48,7 +75,7 @@ export default function RedesSociais() {
               </span>
             </div>
 
-            <h1 className="text-5xl md:text-6xl font-black font-mono tracking-wider text-zinc-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            <h1 className="text-3xl md:text-6xl font-black font-mono tracking-wider text-zinc-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
               [REDES SOCIAIS]
             </h1>
 

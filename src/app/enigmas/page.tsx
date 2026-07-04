@@ -5,6 +5,15 @@ import { useState } from "react";
 import { ClueTerminal } from "@/components/clue-terminal";
 import { CLUES } from "./clues-data";
 
+const PARTICLES = [
+  { x: "15%", y: "20%", delay: "0s", size: 2 },
+  { x: "80%", y: "35%", delay: "1.5s", size: 1.5 },
+  { x: "25%", y: "65%", delay: "2s", size: 2.5 },
+  { x: "70%", y: "75%", delay: "0.8s", size: 1.5 },
+  { x: "50%", y: "15%", delay: "2.5s", size: 2 },
+  { x: "90%", y: "55%", delay: "1s", size: 1.5 },
+];
+
 export default function ArgPistas() {
   const [selectedClueId, setSelectedClueId] = useState<number | null>(null);
 
@@ -37,6 +46,23 @@ export default function ArgPistas() {
       {/* Glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.03),transparent_70%)]" />
 
+      {/* PARTÍCULAS FLUTUANTES */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {PARTICLES.map((p) => (
+          <div
+            key={`${p.x}-${p.y}`}
+            className="absolute rounded-full bg-green-400/40"
+            style={{
+              left: p.x,
+              top: p.y,
+              width: p.size,
+              height: p.size,
+              animation: `float-particle 6s ease-in-out ${p.delay} infinite`,
+            }}
+          />
+        ))}
+      </div>
+
       <div className="relative z-10 max-w-7xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="mb-10 flex items-center justify-between">
@@ -49,7 +75,7 @@ export default function ArgPistas() {
               </span>
             </div>
 
-            <h1 className="text-5xl font-black font-mono tracking-widest text-zinc-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]">
+            <h1 className="text-3xl md:text-5xl font-black font-mono tracking-widest text-zinc-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.15)]">
               [SISTEMA DE PISTAS]
             </h1>
 
@@ -112,7 +138,7 @@ export default function ArgPistas() {
           {/* Painel Principal */}
           <div className="lg:col-span-3">
             {selectedClue ? (
-              <div className="min-h-175 border border-zinc-800 rounded-lg p-6 bg-black/70 backdrop-blur-sm shadow-[0_0_30px_rgba(255,255,255,0.04)]">
+              <div className="min-h-[300px] lg:min-h-[700px] border border-zinc-800 rounded-lg p-6 bg-black/70 backdrop-blur-sm shadow-[0_0_30px_rgba(255,255,255,0.04)]">
                 <div className="mb-6 text-zinc-300 font-mono text-sm border-b border-zinc-800 pb-3">
                   [PISTA #{selectedClue.id}] - {selectedClue.title}
                 </div>
@@ -123,7 +149,7 @@ export default function ArgPistas() {
                 />
               </div>
             ) : (
-              <div className=" min-h-175 flex items-center justify-center border border-dashed border-zinc-800 rounded-lg bg-black/40">
+              <div className=" min-h-[300px] lg:min-h-[700px] flex items-center justify-center border border-dashed border-zinc-800 rounded-lg bg-black/40">
                 <div className="text-center">
                   <p className="font-mono text-zinc-600 tracking-[0.2em]">
                     AGUARDANDO SELEÇÃO DE PISTA...

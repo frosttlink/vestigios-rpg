@@ -15,7 +15,7 @@ export function SystemSection() {
       <section className="mb-32">
         <SectionCard
           glow
-          className="p-8 md:p-12 grid items-center gap-12 lg:grid-cols-[320px_1fr]"
+          className="p-6 md:p-12 grid items-center gap-8 md:gap-12 lg:grid-cols-[320px_1fr]"
         >
           <div className="relative flex justify-center perspective-distant">
             <div className="relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 shadow-[0_30px_80px_rgba(0,0,0,0.6)] transition-all duration-700 origin-right transform-3d hover:transform-[rotateY(25deg)] hover:shadow-[0_40px_120px_rgba(255,255,255,0.08)]">
@@ -39,7 +39,7 @@ export function SystemSection() {
               </span>
             </div>
 
-            <h2 className="mb-6 font-mono text-4xl font-black tracking-wider text-zinc-100">
+            <h2 className="mb-6 font-mono text-2xl md:text-4xl font-black tracking-wider text-zinc-100">
               [LIVRO DE REGRAS]
             </h2>
 
