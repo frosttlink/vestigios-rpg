@@ -18,18 +18,24 @@ interface BookEntry {
 const BOOKS: BookEntry[] = [
   {
     title: "Fichas de jogador oficial de Vestígios RPG",
+    description:
+      "Fichas oficiais para criação de personagens, NPCs e registro da evolução durante as campanhas.",
     status: "available",
     image: "/ficha-ofc.jpeg",
     link: "https://drive.google.com/file/d/18t0rrx56M087AK-ZRj2EEHdSXmqcSWQd/view",
   },
   {
     title: "Livro de regras e sistema de Vestígios RPG",
+    description:
+      "Todas as regras, criação de personagem, combate, investigação, equipamentos e mecânicas do sistema.",
     status: "available",
     image: "/guia-basico.jpeg",
     link: "https://docs.google.com/document/d/1UAfO5_sJZYXKasnBu9qwJ4VdkPlLAGzrg11YUlxosrU/edit?usp=drivesdk",
   },
   {
     title: "Ameaças e Personagens oficiais do sistema de Vestígios RPG",
+    description:
+      "Criaturas, antagonistas e personagens oficiais do universo de Vestígios RPG.",
     status: "available",
     image: "/ficha-am.jpeg",
     link: "https://drive.google.com/file/d/1lwFvTnMyWua-GAo2bXvRTILaPHLDwqsl/view?usp=drivesdk",
@@ -143,7 +149,7 @@ export default function Biblioteca() {
             {BOOKS.map((book, index) => (
               <div
                 key={book.title || `book-${index}`}
-                className={`group flex flex-col items-center sm:items-start transition-all duration-500 ${
+                className={`group flex flex-row md:flex-col gap-5 items-start w-full transition-all duration-500${
                   book.status === "soon"
                     ? "opacity-50 grayscale hover:grayscale-0"
                     : ""
@@ -159,7 +165,7 @@ export default function Biblioteca() {
                     href={book.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative w-full h-80 max-w-60 mb-6 shrink-0 block"
+                    className="relative w-28 h-40 md:w-full md:h-80 md:max-w-60 shrink-0"
                   >
                     <div className="absolute inset-0 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 shadow-[0_10px_40px_rgba(0,0,0,0.8)] transition-all duration-500 group-hover:shadow-[0_20px_60px_rgba(255,255,255,0.12)] group-hover:border-zinc-600 group-hover:transform-[translateY(-12px)_scale(1.02)_rotateY(6deg)] transform-3d origin-right">
                       <Image
@@ -173,7 +179,7 @@ export default function Biblioteca() {
                     </div>
                   </Link>
                 ) : (
-                  <div className="relative w-full h-80 max-w-60 mb-6 shrink-0">
+                  <div className="relative w-28 h-40 md:w-full md:h-80 md:max-w-60 shrink-0">
                     <div className="absolute inset-0 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 shadow-[0_10px_40px_rgba(0,0,0,0.8)]">
                       <Image
                         src={book.image || "/placeholder.jpg"}
@@ -188,7 +194,7 @@ export default function Biblioteca() {
                 )}
 
                 {/* INFORMAÇÕES DO LIVRO */}
-                <div className="flex flex-col max-w-60 relative z-20">
+                <div className="flex flex-1 flex-col md:max-w-60 relative z-20">
                   {/* STATUS COM INDICADOR VISUAL */}
                   <div className="flex items-center gap-2 mb-3">
                     {book.status === "available" ? (
@@ -206,14 +212,33 @@ export default function Biblioteca() {
                     {book.title || "[ TÍTULO DESCONHECIDO ]"}
                   </h3>
 
+                  <p className="mt-3 text-xs leading-relaxed text-zinc-500 md:hidden">
+                    {book.description}
+                  </p>
+
+                  {book.status === "available" && book.link && (
+                    <div className="md:hidden mt-4">
+                      <div className="border-t border-zinc-800 pt-3">
+                        <Link
+                          href={book.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="group/link flex items-center justify-between font-mono text-[11px] tracking-[0.25em] uppercase text-zinc-500 transition-colors hover:text-zinc-200"
+                        >
+                          <span>ABRIR DOCUMENTO</span>
+                        </Link>
+                      </div>
+                    </div>
+                  )}
+
                   {/* BOTÃO ACESSAR */}
                   {book.status === "available" && book.link && (
-                    <div className="mt-5">
+                    <div className="hidden md:block mt-5">
                       <Link
                         href={book.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-zinc-400 border border-zinc-800 px-4 py-2 rounded hover:bg-zinc-800 hover:text-zinc-100 transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-zinc-400 border border-zinc-800 px-4 py-2 rounded hover:bg-zinc-800 hover:text-zinc-100 transition-colors"
                       >
                         [ ACESSAR ]
                       </Link>
