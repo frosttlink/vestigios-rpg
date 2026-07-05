@@ -183,15 +183,6 @@ export default function Biblioteca() {
                       />
 
                       <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/30 to-white/10" />
-
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="relative">
-                          <div className="absolute inset-0 bg-zinc-900/80 blur-xl rounded-full scale-150" />
-                          <span className="relative font-mono text-[10px] tracking-[0.3em] uppercase text-zinc-600 bg-zinc-950/80 px-4 py-2 rounded border border-zinc-800 select-none">
-                            [DADOS CORROMPIDOS]
-                          </span>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 )}
