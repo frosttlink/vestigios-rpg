@@ -35,7 +35,7 @@ export function Footer() {
 
         <div className="mt-10 pt-6 border-t border-zinc-800/40 text-center">
           <p className="font-mono text-[10px] tracking-[0.3em] text-zinc-700">
-            {"// SISTEMA DE RPG &mdash; TODOS OS DIREITOS RESERVADOS"}
+            {"// SISTEMA DE RPG — TODOS OS DIREITOS RESERVADOS"}
           </p>
         </div>
       </div>

@@ -212,7 +212,7 @@ function MobileMenu({
           </button>
         </div>
 
-        <div className="px-6 py-6 space-y-2">
+        <div className="px-6 py-6 flex flex-col gap-2">
           {links.map((link) => {
             const content = (
               <span className="flex items-center gap-4 px-4 py-4 rounded-lg border border-zinc-800/60 bg-black/40 font-mono text-sm tracking-[0.15em] text-zinc-300 hover:bg-zinc-900 hover:border-zinc-600 hover:text-white transition-all duration-300">
@@ -229,6 +229,7 @@ function MobileMenu({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={onClose}
+                  className="block"
                 >
                   {content}
                 </a>
@@ -236,7 +237,12 @@ function MobileMenu({
             }
 
             return (
-              <Link key={link.href} href={link.href} onClick={onClose}>
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={onClose}
+                className="block"
+              >
                 {content}
               </Link>
             );
