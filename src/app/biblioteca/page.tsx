@@ -22,7 +22,7 @@ const BOOKS: BookEntry[] = [
       "Fichas oficiais para criação de personagens, NPCs e registro da evolução durante as campanhas.",
     status: "available",
     image: "/ficha-ofc.jpeg",
-    link: "https://drive.google.com/file/d/18t0rrx56M087AK-ZRj2EEHdSXmqcSWQd/view",
+    link: "https://drive.google.com/file/d/1Q5jXuKYzdr3CVRIFHk_cmIDWzEqWV-Uk/view",
   },
   {
     title: "Livro de regras e sistema de Vestígios RPG",
