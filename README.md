@@ -33,7 +33,6 @@
 | **Tailwind CSS** | 4 | Estilização |
 | **TypeScript** | 5 | Tipagem estática |
 | **Biome** | 2 | Lint + Format |
-| **Lucide React** | - | Ícones |
 
 ## Estrutura do Projeto
 
@@ -67,33 +66,6 @@ vestigios-rpg/
 └── package.json
 ```
 
-## Getting Started
-
-### Pré-requisitos
-
-- [Node.js](https://nodejs.org/) 18+
-- [pnpm](https://pnpm.io/) (recomendado) ou npm
-
-### Instalação
-
-```bash
-# Clone o repositório
-git clone https://github.com/frosttlink/vestigios-rpg.git
-cd vestigios-rpg
-
-# Instale as dependências
-pnpm install
-
-# Configure as variáveis de ambiente
-cp .env.local.example .env.local
-# Edite .env.local e adicione sua YOUTUBE_API_URL
-
-# Execute o servidor de desenvolvimento
-pnpm dev
-```
-
-Acesse [http://localhost:3000](http://localhost:3000).
-
 ## Rotas
 
 | Rota | Descrição |
@@ -102,22 +74,6 @@ Acesse [http://localhost:3000](http://localhost:3000).
 | `/biblioteca` | Biblioteca de investigação |
 | `/enigmas` | Enigmas e pistas do ARG |
 | `/redes-sociais` | Redes sociais do universo Vestígios |
-
-## Variáveis de Ambiente
-
-| Variável | Descrição | Obrigatória |
-|----------|-----------|-------------|
-| `NEXT_PUBLIC_YOUTUBE_API_URL` | URL da API do Vestígios (backend) | Sim |
-
-## Desenvolvimento
-
-```bash
-pnpm dev        # Servidor de desenvolvimento (Turbopack)
-pnpm build      # Build de produção
-pnpm start      # Iniciar servidor de produção
-pnpm lint       # Verificar código (Biome)
-pnpm format     # Formatar código (Biome)
-```
 
 ## Licença
 
