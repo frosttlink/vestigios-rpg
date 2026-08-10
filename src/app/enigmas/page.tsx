@@ -103,19 +103,19 @@ export default function ArgPistas() {
 
               <div className="space-y-2">
                 {CLUES.map((clue) => (
-                  <button
-                    type="button"
-                    key={clue.id}
-                    onClick={() => setSelectedClueId(clue.id)}
-                    className={`w-full text-left px-3 py-3 rounded font-mono text-sm transition-all duration-200 ${
-                      selectedClueId === clue.id
-                        ? `
+                  <div key={clue.id}>
+                    <button
+                      type="button"
+                      onClick={() => setSelectedClueId(clue.id)}
+                      className={`w-full text-left px-3 py-3 rounded font-mono text-sm transition-all duration-200 ${
+                        selectedClueId === clue.id
+                          ? `
                             bg-zinc-100
                             text-black
                             font-bold
                             shadow-[0_0_30px_rgba(255,255,255,0.15)]
                           `
-                        : `
+                          : `
                             bg-zinc-900
                             text-zinc-400
                             border
@@ -125,11 +125,22 @@ export default function ArgPistas() {
                             hover:bg-zinc-800
                             hover:translate-x-1
                           `
-                    }`}
-                  >
-                    <span className="text-xs opacity-70">#{clue.id}</span>{" "}
-                    {clue.title}
-                  </button>
+                      }`}
+                    >
+                      <span className="text-xs opacity-70">#{clue.id}</span>{" "}
+                      {clue.title}
+                    </button>
+
+                    {clue.id === 7 && (
+                      <div className="my-4 flex items-center gap-2">
+                        <div className="flex-1 border-t border-dashed border-zinc-700" />
+                        <span className="text-[10px] text-zinc-500 font-mono tracking-[0.3em]">
+                          ── ? ──
+                        </span>
+                        <div className="flex-1 border-t border-dashed border-zinc-700" />
+                      </div>
+                    )}
+                  </div>
                 ))}
               </div>
             </div>

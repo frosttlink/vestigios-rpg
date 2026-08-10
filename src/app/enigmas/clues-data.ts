@@ -1,4 +1,5 @@
 import codBarrba from "../../../public/cod-barra.jpeg";
+import interr from "../../../public/image-interrogation.jpeg";
 import qrCode from "../../../public/qrcode.jpeg";
 
 export const CLUES = [
@@ -130,5 +131,17 @@ paRe de tentar invadir o sistema, Faça o caminho de volta,
 caso contrario, o protocolo 2 - 1:09 sera usado.
 1r0eyvIeOPtSrdSEnl7j8yucAoEgSZxiJmOhmE6gxDiU
 `,
+  },
+
+  {
+    id: 8,
+    title: "?",
+    content: `
+[SYSTEM] Loading archive...100%
+[ANALYSING]: [ERROR]
+[ANEXO VISUAL VINCULADO]
+[?]
+`,
+    image: interr,
   },
 ];
