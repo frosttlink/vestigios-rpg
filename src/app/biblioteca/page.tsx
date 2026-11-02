@@ -22,7 +22,7 @@ const BOOKS: BookEntry[] = [
       "Fichas oficiais para criação de personagens, NPCs e registro da evolução durante as campanhas.",
     status: "available",
     image: "/ficha-ofc.jpeg",
-    link: "https://drive.google.com/file/d/1Q5jXuKYzdr3CVRIFHk_cmIDWzEqWV-Uk/view",
+    link: "https://drive.google.com/file/d/1ZcMWMgpZezTZLJmHOYJODbe8aD3Thk-7/view",
   },
   {
     title: "Livro de regras e sistema de Vestígios RPG",
@@ -38,7 +38,7 @@ const BOOKS: BookEntry[] = [
       "Criaturas, antagonistas e personagens oficiais do universo de Vestígios RPG.",
     status: "available",
     image: "/ficha-am.jpeg",
-    link: "https://drive.google.com/file/d/1lwFvTnMyWua-GAo2bXvRTILaPHLDwqsl/view?usp=drivesdk",
+    link: "https://drive.google.com/file/d/168gzcOn_fkcZFMRoqgIL3S6SgDv7ZxtC/view",
   },
   {
     title: "Campanhas e Temporadas prontas oficiais do sistema Vestígios RPG",
