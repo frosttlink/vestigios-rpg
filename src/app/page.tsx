@@ -1,4 +1,5 @@
 import { AboutSection } from "@/components/about-section";
+import { CreditsSection } from "@/components/credits-section";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
@@ -25,6 +26,7 @@ export default function Home() {
             <AboutSection />
             <SystemSection />
             <RedactedSection />
+            <CreditsSection />
           </div>
         </section>
 
