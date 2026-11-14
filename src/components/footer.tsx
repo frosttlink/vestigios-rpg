@@ -1,4 +1,23 @@
-import { Mail } from "lucide-react";
+import { Camera, Mail, MessageCircle, Play, X } from "lucide-react";
+
+const SOCIALS = [
+  { name: "X (Twitter)", href: "https://x.com/VestigiosRPGsys", icon: X },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/vestigios_rpg",
+    icon: Camera,
+  },
+  {
+    name: "YouTube",
+    href: "https://youtube.com/@vestigiosrpg?si=vKU60KQeEAcFXxen",
+    icon: Play,
+  },
+  {
+    name: "WhatsApp",
+    href: "https://www.whatsapp.com/channel/0029Vb7I6VrBA1eysc9UnT1q",
+    icon: MessageCircle,
+  },
+];
 
 export function Footer() {
   return (
@@ -27,9 +46,37 @@ export function Footer() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3 text-zinc-500">
-            <Mail size={16} />
-            <span className="font-mono text-sm">rpgvestigios@gmail.com</span>
+          <div className="flex flex-col gap-4 md:items-end">
+            <div className="flex items-center gap-3 text-zinc-500">
+              <Mail size={16} />
+              <span className="font-mono text-sm">rpgvestigios@gmail.com</span>
+            </div>
+
+            <div className="flex flex-wrap items-center gap-2">
+              {SOCIALS.map((social) => {
+                const Icon = social.icon;
+
+                return (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.name}
+                    title={social.name}
+                    className="
+                      flex h-10 w-10 items-center justify-center rounded-lg
+                      border border-zinc-800 bg-zinc-950/60 text-zinc-500
+                      hover:border-zinc-600 hover:text-zinc-200
+                      hover:shadow-[0_0_20px_rgba(255,255,255,0.06)]
+                      transition-all duration-300
+                    "
+                  >
+                    <Icon size={16} />
+                  </a>
+                );
+              })}
+            </div>
           </div>
         </div>
 

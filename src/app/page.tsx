@@ -3,8 +3,8 @@ import { CreditsSection } from "@/components/credits-section";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
+import { LandingClosing, LandingHighlights } from "@/components/landing";
 import { NavGrid } from "@/components/nav-grid";
-import { RedactedSection } from "@/components/redacted-section";
 import { SystemSection } from "@/components/system-section";
 
 export default function Home() {
@@ -25,8 +25,9 @@ export default function Home() {
             <NavGrid />
             <AboutSection />
             <SystemSection />
-            <RedactedSection />
+            <LandingHighlights />
             <CreditsSection />
+            <LandingClosing />
           </div>
         </section>
 
