@@ -5,7 +5,7 @@ import { SectionCard } from "@/components/section-card";
 
 export function ArgTeaserSection() {
   return (
-    <section className="mb-32">
+    <section className="mb-16 md:mb-20">
       <SectionCard glow className="relative overflow-hidden p-6 md:p-12">
         <div
           className="absolute inset-0 opacity-[0.03] pointer-events-none"

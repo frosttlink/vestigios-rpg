@@ -263,11 +263,10 @@ a {
   }
 }
 
-@keyframes glitch-red {
+@keyframes glitch-a {
   0%,
   100% {
     transform: translate(2px, 0);
-    filter: hue-rotate(330deg);
   }
 
   20% {
@@ -287,7 +286,7 @@ a {
   }
 }
 
-@keyframes glitch-blue {
+@keyframes glitch-b {
   0%,
   100% {
     transform: translate(-2px, 0);
@@ -324,12 +323,12 @@ a {
   animation: logo-breathe 5s ease-in-out infinite;
 }
 
-.animate-glitch-red {
-  animation: glitch-red 0.25s infinite alternate;
+.animate-glitch-a {
+  animation: glitch-a 0.25s infinite alternate;
 }
 
-.animate-glitch-blue {
-  animation: glitch-blue 0.25s infinite alternate;
+.animate-glitch-b {
+  animation: glitch-b 0.25s infinite alternate;
 }
 
 .animate-fog {
@@ -356,4 +355,108 @@ a {
 
 .animate-tagline {
   animation: tagline 4s ease-in-out infinite;
+}
+
+@keyframes funding-scanline-move {
+  from {
+    background-position: 0 0;
+  }
+
+  to {
+    background-position: 0 4px;
+  }
+}
+
+.funding-scanlines {
+  background-image: linear-gradient(
+    to bottom,
+    transparent 50%,
+    rgba(255, 255, 255, 0.07) 50%
+  );
+  background-size: 100% 4px;
+  opacity: 0.35;
+  animation: funding-scanline-move 1.4s linear infinite;
+}
+
+.funding-fill {
+  transition: width 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes funding-marker-hit {
+  0% {
+    transform: scaleX(0.5);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.5);
+  }
+
+  60% {
+    transform: scaleX(1.08);
+    box-shadow: 0 0 14px 4px rgba(255, 255, 255, 0.3);
+  }
+
+  100% {
+    transform: scaleX(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}
+
+.funding-marker--hit {
+  animation: funding-marker-hit 1.4s ease-out 1;
+}
+
+@keyframes funding-pulse {
+  0%,
+  100% {
+    opacity: 1;
+    box-shadow: 0 0 6px rgba(255, 255, 255, 0.6);
+  }
+
+  50% {
+    opacity: 0.45;
+    box-shadow: 0 0 2px rgba(255, 255, 255, 0.25);
+  }
+}
+
+.funding-pulse {
+  animation: funding-pulse 2s ease-in-out infinite;
+}
+
+@keyframes funding-glitch {
+  0%,
+  92%,
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  94% {
+    transform: translateX(-1px);
+    opacity: 0.75;
+  }
+
+  96% {
+    transform: translateX(1px);
+    opacity: 0.9;
+  }
+
+  98% {
+    transform: translateX(-1px);
+    opacity: 1;
+  }
+}
+
+.funding-glitch {
+  animation: funding-glitch 6s steps(1, end) infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .funding-scanlines,
+  .funding-marker--hit,
+  .funding-pulse,
+  .funding-glitch {
+    animation: none;
+  }
+
+  .funding-fill {
+    transition: none;
+  }
 }

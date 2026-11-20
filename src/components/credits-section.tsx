@@ -63,11 +63,19 @@ const TEAM: TeamMember[] = [
     name: "Louie",
     roles: "Escritor e roteiro.",
   },
+  {
+    name: "Letícia",
+    roles: "Desenhista.",
+  },
+  {
+    name: "Zali",
+    roles: "Desenhos e dublagem.",
+  },
 ];
 
 export function CreditsSection() {
   return (
-    <section className="mb-32">
+    <section className="mb-16 md:mb-20">
       <SectionCard glow className="p-6 md:p-12">
         <div className="flex items-center gap-3 mb-6">
           <span className="w-2 h-2 rounded-full bg-zinc-500" />
@@ -85,7 +93,7 @@ export function CreditsSection() {
           um pouco de si neste projeto. Nosso muito obrigado a todos vocês.
         </p>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
           {TEAM.map((member) => (
             <div
               key={member.name}

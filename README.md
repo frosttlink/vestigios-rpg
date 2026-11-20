@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/VESTÍGIOS_RPG-DC2626?style=for-the-badge&logo=&logoColor=white&labelColor=000000" alt="Vestígios RPG" />
+  <img src="https://img.shields.io/badge/VESTÍGIOS_RPG-ffffff?style=for-the-badge&logo=&logoColor=000000&labelColor=000000" alt="Vestígios RPG" />
 </p>
 
 <h1 align="center">

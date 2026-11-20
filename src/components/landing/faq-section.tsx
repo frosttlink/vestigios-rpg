@@ -30,7 +30,7 @@ const FAQ = [
 
 export function FaqSection() {
   return (
-    <section className="mb-32">
+    <section className="mb-16 md:mb-20">
       <SectionCard glow className="p-6 md:p-12">
         <div className="flex items-center gap-3 mb-6">
           <span className="w-2 h-2 rounded-full bg-zinc-500" />

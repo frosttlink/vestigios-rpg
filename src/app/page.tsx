@@ -3,14 +3,19 @@ import { CreditsSection } from "@/components/credits-section";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { HeroSection } from "@/components/hero-section";
-import { LandingClosing, LandingHighlights } from "@/components/landing";
+import {
+  LandingArgTeaser,
+  LandingClosing,
+  LandingFunding,
+  LandingLibrary,
+} from "@/components/landing";
 import { NavGrid } from "@/components/nav-grid";
-import { SystemSection } from "@/components/system-section";
 
 export default function Home() {
   return (
     <>
       <Header variant="hero" />
+      <LandingFunding />
 
       <main className="bg-black text-zinc-100">
         <HeroSection />
@@ -20,12 +25,12 @@ export default function Home() {
 
           <div
             id="conteudo"
-            className="relative max-w-7xl mx-auto px-6 pt-8 pb-24"
+            className="relative max-w-7xl mx-auto px-6 pt-6 pb-16"
           >
             <NavGrid />
             <AboutSection />
-            <SystemSection />
-            <LandingHighlights />
+            <LandingLibrary />
+            <LandingArgTeaser />
             <CreditsSection />
             <LandingClosing />
           </div>

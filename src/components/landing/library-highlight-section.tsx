@@ -2,17 +2,19 @@ import { ArrowRight, Clock } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { SectionCard } from "@/components/section-card";
+import { FeaturedBookCard } from "./featured-book-card";
+
+const FEATURED_BOOK = {
+  title: "Livro de regras",
+  image: "/guia-basico.jpeg",
+  link: "https://docs.google.com/document/d/1UAfO5_sJZYXKasnBu9qwJ4VdkPlLAGzrg11YUlxosrU/edit?usp=drivesdk",
+};
 
 const AVAILABLE = [
   {
     title: "Fichas de jogador",
     image: "/ficha-ofc.jpeg",
     link: "https://drive.google.com/file/d/1ZcMWMgpZezTZLJmHOYJODbe8aD3Thk-7/view",
-  },
-  {
-    title: "Livro de regras",
-    image: "/guia-basico.jpeg",
-    link: "https://docs.google.com/document/d/1UAfO5_sJZYXKasnBu9qwJ4VdkPlLAGzrg11YUlxosrU/edit?usp=drivesdk",
   },
   {
     title: "Ameaças e personagens",
@@ -25,7 +27,7 @@ const SOON = ["Campanhas e temporadas", "HQ da linha principal"];
 
 export function LibraryHighlightSection() {
   return (
-    <section className="mb-32">
+    <section className="mb-16 md:mb-20">
       <SectionCard glow className="p-6 md:p-12">
         <div className="flex items-center gap-3 mb-6">
           <span className="w-2 h-2 rounded-full bg-zinc-500" />
@@ -34,7 +36,7 @@ export function LibraryHighlightSection() {
           </span>
         </div>
 
-        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-10">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between mb-8">
           <div>
             <h2 className="text-2xl md:text-4xl font-black font-mono tracking-wider mb-4 text-zinc-100">
               [BIBLIOTECA EM DESTAQUE]
@@ -62,7 +64,9 @@ export function LibraryHighlightSection() {
           </Link>
         </div>
 
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          <FeaturedBookCard {...FEATURED_BOOK} />
+
           {AVAILABLE.map((item) => (
             <a
               key={item.title}
@@ -82,7 +86,7 @@ export function LibraryHighlightSection() {
                   src={item.image}
                   alt={item.title}
                   fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
 
@@ -103,7 +107,7 @@ export function LibraryHighlightSection() {
           ))}
         </div>
 
-        <div className="mt-6 rounded-lg border border-dashed border-zinc-800 p-5">
+        <div className="mt-5 rounded-lg border border-dashed border-zinc-800 p-5">
           <div className="flex items-center gap-3 mb-3">
             <Clock size={13} className="text-zinc-600" />
             <span className="font-mono text-[10px] tracking-[0.3em] text-zinc-600 uppercase">

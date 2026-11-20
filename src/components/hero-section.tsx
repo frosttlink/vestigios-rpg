@@ -95,24 +95,24 @@ export function HeroSection() {
               }}
             />
 
-            {/* Fantasma vermelho */}
+            {/* Fantasma A */}
             <Image
               src="/logo-vestigios.png"
               alt=""
               width={1599}
               height={899}
               aria-hidden
-              className="absolute opacity-20 translate-x-0.5 mix-blend-screen animate-glitch-red pointer-events-none"
+              className="absolute opacity-20 translate-x-0.5 mix-blend-screen animate-glitch-a pointer-events-none"
             />
 
-            {/* Fantasma azul */}
+            {/* Fantasma B */}
             <Image
               src="/logo-vestigios.png"
               alt=""
               width={1599}
               height={899}
               aria-hidden
-              className="absolute opacity-20 -translate-x-0.5 mix-blend-screen animate-glitch-blue pointer-events-none"
+              className="absolute opacity-20 -translate-x-0.5 mix-blend-screen animate-glitch-b pointer-events-none"
             />
 
             {/* Logo principal */}
